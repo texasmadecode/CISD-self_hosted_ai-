@@ -1,6 +1,9 @@
 # tests/test_app.py
-
 import pytest
+import sys
+import os
+# Add the app directory to the Python path dynamically
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../app')))
 from app import app  # Assuming your Flask app is in app.py
 
 @pytest.fixture
