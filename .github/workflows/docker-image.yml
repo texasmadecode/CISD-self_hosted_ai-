@@ -39,8 +39,8 @@ jobs:
       # Export PYTHONPATH for subsequent steps and run tests
       - name: Run tests
         run: |
-          export PYTHONPATH=$(pwd)/app
-          pytest app/tests  # Adjust the test folder path if needed
+         export PYTHONPATH=$(pwd)/app
+         pytest test/test_app.py
 
       # Set up Docker Buildx
       - name: Set up Docker Buildx
