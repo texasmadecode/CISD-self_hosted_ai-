@@ -33,3 +33,11 @@ jobs:
 
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag self_hosted_ai:$(date +%s)
+      - name: Test API
+        run: |
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5000)
+          if [ "$RESPONSE" -ne 200 ]; then
+            echo "API test failed with status code $RESPONSE"
+            exit 1
+          fi
+          echo "API test passed!"
