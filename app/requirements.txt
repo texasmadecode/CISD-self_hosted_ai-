@@ -1,2 +1,3 @@
 Flask==2.0.2
 #using flask to test in prod change to 
+#olama and model must be pre installed
