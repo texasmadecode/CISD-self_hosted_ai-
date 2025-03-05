@@ -6,5 +6,8 @@ We are using flask right now but will change for prod
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/self-hosted-ai-dev.git
+   git clone https://github.com/texasmadecode/CISD-self_hosted_ai-
    cd self-hosted-ai-dev
+2. Make dockerfile
+  '''bash
+  docker
