@@ -1,3 +1,10 @@
 Flask==2.0.2
-#using flask to test in prod change to 
-#olama and model must be pre installed
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+Werkzeug==2.0.2  # Make sure this matches the Flask version
+click==8.1.8
+itsdangerous==2.2.0
+pytest==8.3.5
+exceptiongroup==1.2.2
+iniconfig==2.0.0
+packaging==24.2
