@@ -37,7 +37,8 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: pytest
+        run: export PYTHONPATH=$(pwd)/app
+             pytest
 
       # Set up Docker Buildx
       - name: Set up Docker Buildx
