@@ -18,7 +18,7 @@ jobs:
 
       - name: Install Ollama
         run: |
-          curl -sSL https://ollama.com/download | bash
+          curl -fsSL https://ollama.com/install.sh | sh
           # Add Ollama to the PATH (optional if it's installed globally)
           export PATH=$PATH:/path/to/ollama
 
