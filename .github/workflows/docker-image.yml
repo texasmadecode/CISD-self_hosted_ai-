@@ -3,14 +3,8 @@ name: Docker Image CI
 on:
   push:
     branches: ["main"]
-    paths:
-      - "app/**"        # Trigger when files in the 'app' directory change
-      - "templates/**"   # Trigger when files in the 'templates' directory change
   pull_request:
     branches: ["main"]
-    paths:
-      - "app/**"
-      - "templates/**"
 
 jobs:
   build:
@@ -27,7 +21,6 @@ jobs:
           curl -fsSL https://ollama.com/install.sh | sh
           # Add Ollama to the PATH (optional if it's installed globally)
           export PATH=$PATH:/path/to/ollama
-
       - name: Run Ollama model (Optional for testing)
         run: ollama run mistral
 
