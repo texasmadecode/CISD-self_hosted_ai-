@@ -2,6 +2,9 @@
 
 A simple AI chatbot API using Flask to serve an Ollama model locally.
 We are using flask right now but will change for prod
+![Build Status](https://img.shields.io/github/workflow/status/texasmadecode/CISD-self_hosted_ai/Docker%20Image%20CI)
+![Docker Image Size](https://img.shields.io/docker/image-size/texasmadecode/self_hosted_ai)
+
 ## How to Run
 
 1. Clone the repository:
@@ -10,6 +13,6 @@ We are using flask right now but will change for prod
    cd self-hosted-ai-dev
 ## Build and Run docker container   
 1. Make dockerfile and run
-  '''bash
+  ```bash
   docker build . -t ai_docker
-docker run -p 5000:5000 ai_docker
+  docker run -p 5000:5000 ai_docker
