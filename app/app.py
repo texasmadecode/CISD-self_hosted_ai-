@@ -12,7 +12,7 @@ def chat():
         return jsonify({"error": "No message provided"}), 400
 
     # Run Ollama model with user input
-    #you can change model here
+    #you can change model here by defalte its mistral
     result = subprocess.run(["ollama", "run", "mistral", user_input], capture_output=True, text=True)
     
     return jsonify({"response": result.stdout.strip()})
