@@ -8,6 +8,8 @@ We are using flask right now but will change for prod
    ```bash
    git clone https://github.com/texasmadecode/CISD-self_hosted_ai-
    cd self-hosted-ai-dev
-2. Make dockerfile
+## Build and Run docker container   
+1. Make dockerfile and run
   '''bash
-  docker
+  docker build . -t ai_docker
+docker run -p 5000:5000 ai_docker
