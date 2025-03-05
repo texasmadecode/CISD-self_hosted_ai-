@@ -28,7 +28,4 @@ jobs:
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag self_hosted_ai:$(date +%s)
 
-      - name: Push Docker image to DockerHub (optional)
-        run: |
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker push self_hosted_ai:$(date +%s)
+      
