@@ -24,6 +24,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      # Install dependencies and run tests
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Run tests
+        run: pytest
+
+      # Set up Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
@@ -32,8 +48,10 @@ jobs:
           curl -fsSL https://ollama.com/install.sh | sh
           export PATH=$PATH:/path/to/ollama
 
+      # Run Ollama model (Optional for testing)
       - name: Run Ollama model (Optional for testing)
         run: ollama run mistral
 
+      # Build Docker image
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag self_hosted_ai:$(date +%s)
