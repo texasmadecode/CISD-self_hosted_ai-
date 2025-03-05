@@ -16,6 +16,6 @@ def chat():
     result = subprocess.run(["ollama", "run", "mistral", user_input], capture_output=True, text=True)
     
     return jsonify({"response": result.stdout.strip()})
-#hello3
+#hello4
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
