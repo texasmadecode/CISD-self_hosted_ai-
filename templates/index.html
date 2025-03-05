@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #chat-container {
+            margin-top: 20px;
+        }
+        .user-message, .ai-response {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background-color: lightblue;
+        }
+        .ai-response {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI Chat Interface</h1>
+    <div>
+        <label for="user-message">Enter message:</label>
+        <input type="text" id="user-message" />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <div id="chat-container">
+        <!-- Chat history will appear here -->
+    </div>
+
+    <script>
+        function sendMessage() {
+            const message = document.getElementById('user-message').value;
+            if (message.trim() === "") return;
+
+            const chatContainer = document.getElementById('chat-container');
+
+            // Display user's message
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.classList.add('user-message');
+            userMessageDiv.innerText = `You: ${message}`;
+            chatContainer.appendChild(userMessageDiv);
+
+            // Send message to API
+            fetch('http://localhost:5000/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display AI response
+                const aiResponseDiv = document.createElement('div');
+                aiResponseDiv.classList.add('ai-response');
+                aiResponseDiv.innerText = `AI: ${data.response}`;
+                chatContainer.appendChild(aiResponseDiv);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+            // Clear input field
+            document.getElementById('user-message').value = '';
+        }
+    </script>
+</body>
+</html>

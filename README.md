@@ -1,7 +1,7 @@
 # Self-Hosted AI Development Environment
 
 A simple AI chatbot API using Flask to serve an Ollama model locally.
-
+We are using flask right now but will change for prod
 ## How to Run
 
 1. Clone the repository:
