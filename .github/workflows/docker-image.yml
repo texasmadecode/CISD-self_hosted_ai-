@@ -3,12 +3,23 @@ name: Docker Image CI
 on:
   push:
     branches: ["main"]
+    paths:
+      - "app/**"
+      - "templates/**"
   pull_request:
     branches: ["main"]
+    paths:
+      - "app/**"
+      - "templates/**"
+
+permissions:
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -19,8 +30,8 @@ jobs:
       - name: Install Ollama
         run: |
           curl -fsSL https://ollama.com/install.sh | sh
-          # Add Ollama to the PATH (optional if it's installed globally)
           export PATH=$PATH:/path/to/ollama
+
       - name: Run Ollama model (Optional for testing)
         run: ollama run mistral
 
