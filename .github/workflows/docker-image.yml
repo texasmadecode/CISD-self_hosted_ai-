@@ -3,8 +3,14 @@ name: Docker Image CI
 on:
   push:
     branches: ["main"]
+    paths:
+      - "app/**"        # Trigger when files in the 'app' directory change
+      - "templates/**"   # Trigger when files in the 'templates' directory change
   pull_request:
     branches: ["main"]
+    paths:
+      - "app/**"
+      - "templates/**"
 
 jobs:
   build:
@@ -27,5 +33,3 @@ jobs:
 
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag self_hosted_ai:$(date +%s)
-
-      
