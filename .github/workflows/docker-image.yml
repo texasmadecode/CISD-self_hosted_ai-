@@ -53,13 +53,12 @@ jobs:
       - name: Run Ollama model (Optional for testing)
         run: ollama run mistral
 
-      # Build Docker image
+      # Build and run Docker image
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag self_hosted_ai:$(date +%s)
+        run: |
+          docker build . --file Dockerfile --tag self_hosted_ai:$(date +%s)
+          docker run self_hosted_ai:$(date +%s)
       
-        #run docker image
-      - name: Run docker image 
-        run: docker run -d --name self_hosted_ai_container self_hosted_ai
       # Export PYTHONPATH for subsequent steps and run tests
       - name: Run tests
         run: |
