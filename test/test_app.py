@@ -10,7 +10,7 @@ def client():
 def test_home(client):
     response = client.get('/')
     assert response.status_code == 200
-    assert b"Hello, World!" in response.data  # Adjust based on your app's output
+    assert b"AI Chat Interface" in response.data  # Adjust based on your app's output
 
 def test_model(client):
     response = client.post('/chat', json={'message': 'Hi'})
