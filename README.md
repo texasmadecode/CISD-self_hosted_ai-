@@ -13,5 +13,5 @@ We are using flask right now but will change for prod
 ## Build and Run docker container   
 1. Make dockerfile and run
    ```bash
-  docker build . -t ai_docker
-  docker run -p 5000:5000 ai_docker
+   docker build . -t ai_docker
+   docker run -p 5000:5000 ai_docker
