@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Copy the application code into the container
 COPY app/ /app
-COPY templates/ /app/templates
+COPY app/templates/ /app/templates
 
 # Copy the requirements.txt (adjust the path if it's in the root)
 COPY requirements.txt /app/
