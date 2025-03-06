@@ -27,8 +27,8 @@ def chat():
         response = result.stdout.strip()
         logging.debug(f"Ollama response: {response}")
     except subprocess.CalledProcessError as e:
-        response = f"An error occurred: {e}"
-        logging.error(response)
+        logging.error(f"An error occurred: {e}")
+        response = "An internal error has occurred. Please try again later."
 
     return jsonify({"response": response})
 
