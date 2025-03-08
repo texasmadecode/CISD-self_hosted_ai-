@@ -21,6 +21,7 @@ def chat():
 
     # Run Ollama model with user input
     # you can change model here by default it's mistral
+    # for testing purpose do not change but feel free to branch and change and if it works feel free to submit PR
     try:
         logging.debug(f"Running ollama with input: {user_input}")
         result = subprocess.run(["ollama", "run", "mistral", user_input], capture_output=True, text=True, check=True)
