@@ -33,6 +33,6 @@ def chat():
 
     return jsonify({"response": response})
 
-# Run the app
+# Run the app1
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
